@@ -1,0 +1,7 @@
+{
+  "name": "CaMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
