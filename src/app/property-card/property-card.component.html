@@ -1,0 +1,18 @@
+<div class="card-container">
+  
+
+  
+  <ion-card class="property-card" [routerLink]="['/listing', data.id]">
+    <img [src]="data.image || 'https://miro.medium.com/1*kwN_Y8GNf2ZB6sNQxngVyw@2x.jpeg'" [alt]="data.title || 'Property image'" />
+
+    <ion-card-header>
+      <ion-card-title>{{data.title}}</ion-card-title><!-- the {{}} gets the data from the saved file propdata -->
+      <ion-card-subtitle>${{data.price}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{data.bnb}}</p>
+    </ion-card-content>
+
+  </ion-card>
+</div>

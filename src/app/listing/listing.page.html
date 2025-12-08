@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ property?.title }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="property">
+  <div class="full-card">
+    <ion-card><!--shows the imgae or filler image if none  -->
+      <img [src]="property?.image || 'https://miro.medium.com/1*kwN_Y8GNf2ZB6sNQxngVyw@2x.jpeg'" [alt]="property?.title || 'Property Image'">
+
+      <ion-card-header>   <!-- displays the property title and price  -->
+        <ion-card-title>{{ property?.title }}</ion-card-title>
+        <ion-card-subtitle>${{ property?.price }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{ property?.bnb }} <br>
+        {{ property?.description }}
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -34,6 +34,12 @@
                 "input": "src/assets",
                 "output": "assets"
               }
+              ,
+              {
+                "glob": "**/*",
+                "input": "src/images",
+                "output": "assets/images"
+              }
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],
             "scripts": [],
@@ -107,6 +113,12 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
+              }
+              ,
+              {
+                "glob": "**/*",
+                "input": "src/images",
+                "output": "assets/images"
               }
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],

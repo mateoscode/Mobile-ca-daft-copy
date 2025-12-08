@@ -1,6 +1,6 @@
+
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -16,12 +16,37 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+
+#listings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+property-card-component {
+  flex: 1 1 calc(25% - 1rem);
+  min-width: 200px;
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+  property-card-component {
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  property-card-component {
+    flex: 1 1 calc(50% - 1rem);
+  }
+  
 }
