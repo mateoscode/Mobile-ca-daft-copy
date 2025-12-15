@@ -18,13 +18,12 @@
 
 
     <input type="text" placeholder="Property title" #title />
-    <input type="file" accept="image/*" #pictureInput />
     <input type="text" placeholder="Price" #price />
     <input type="text" placeholder="Number of bedrooms and bathrooms" #bnb />
     <input type="text" placeholder="Description" #description />
     <p *ngIf="error !== ''">{{error}}</p>
     <ion-button expand="block"
-      (click)="submitListing(title.value, pictureInput.files[0], price.value, bnb.value, description.value)">submit
+      (click)="submitListing(title.value, price.value, bnb.value, description.value)">submit
       listing</ion-button>
     <div style="margin-top:12px"></div>
   </div>
