@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { initializeApp, getApps } from "firebase/app"; 
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp, getApps } from 'firebase/app';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, User } from 'firebase/auth';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,9 @@ export class Identity {
     projectId: "camobile-c4164"
   };
   private app: any;
+  private auth: any;
+  private userSubject = new BehaviorSubject<User | null>(null);
+  readonly user$ = this.userSubject.asObservable();
 
   constructor() { 
     if (!getApps().length) {
@@ -19,6 +23,8 @@ export class Identity {
     } else {
       this.app = getApps()[0];
     }
+    this.auth = getAuth(this.app);
+    onAuthStateChanged(this.auth, (user) => this.userSubject.next(user));
   }
 
   
@@ -27,8 +33,7 @@ export class Identity {
   }
 
   login(email: string, password: string){ // login method using Firebase Authentication
-    const auth = getAuth(this.app);
-    signInWithEmailAndPassword(auth, email, password)
+    return signInWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
         // Signed in 
         debugger
@@ -44,8 +49,7 @@ export class Identity {
   }
 
   register(email: string, password: string){  // register using Firebase 
-    const auth = getAuth(this.app);
-    return createUserWithEmailAndPassword(auth, email, password)
+    return createUserWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log('Registration successful:', user);
@@ -55,6 +59,14 @@ export class Identity {
         console.error('Registration failed:', error.code, error.message);
         throw error;
       });
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.userSubject.value;
+  }
+
+  currentUid(): string | null {
+    return this.userSubject.value?.uid ?? null;
   }
   
 }

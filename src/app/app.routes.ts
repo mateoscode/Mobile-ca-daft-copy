@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,7 @@ export const routes: Routes = [
   },
   {
     path: 'add-prop',
+    canMatch: [authGuard],
     loadComponent: () => import('./add-prop/add-prop.page').then( m => m.AddPropPage)
   },
 
