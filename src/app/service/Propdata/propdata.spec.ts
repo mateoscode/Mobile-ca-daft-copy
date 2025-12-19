@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ListData } from './propdata'
+import { ListData } from './propdata';
 describe('Propdata', () => {
   let service: ListData;
 
@@ -12,5 +12,4 @@ describe('Propdata', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
 });

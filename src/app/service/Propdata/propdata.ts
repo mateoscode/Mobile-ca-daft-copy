@@ -4,21 +4,21 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { collection, getDocs, addDoc, doc, getDoc } from 'firebase/firestore';
 
-
 @Injectable({
   providedIn: 'root',
 })
-export class ListData { //data for property listings
+export class ListData {
+  //data for property listings
   data: any = [];
-  private firebaseConfig = { // Firebase configuration
-    apiKey: "AIzaSyBzZ18MjRlCNecOMnRKCnnEt01spZUA118",
-    authDomain: "camobile-c4164.firebaseapp.com",
-    projectId: "camobile-c4164",
-    storageBucket: "camobile-c4164.firebasestorage.app",
-    messagingSenderId: "722921922598",
-    appId: "1:722921922598:web:104cb7698d0a90e26286e7",
-    measurementId: "G-M3V606CXR6"
-
+  private firebaseConfig = {
+    // Firebase configuration
+    apiKey: 'AIzaSyBzZ18MjRlCNecOMnRKCnnEt01spZUA118',
+    authDomain: 'camobile-c4164.firebaseapp.com',
+    projectId: 'camobile-c4164',
+    storageBucket: 'camobile-c4164.firebasestorage.app',
+    messagingSenderId: '722921922598',
+    appId: '1:722921922598:web:104cb7698d0a90e26286e7',
+    measurementId: 'G-M3V606CXR6',
   };
   private app: any;
   private db: any;
@@ -29,16 +29,14 @@ export class ListData { //data for property listings
     this.db = getFirestore(this.app);
   }
 
-
-
   async getAllListData() {
     this.data = [];
-    const querySnapshot = await getDocs(collection(this.db, "PropertyData"));
+    const querySnapshot = await getDocs(collection(this.db, 'PropertyData'));
 
     for (const docSnapshot of querySnapshot.docs) {
       const listing: any = {
         id: docSnapshot.id,
-        ...docSnapshot.data()
+        ...docSnapshot.data(),
       };
       if (!listing.ownerEmail && listing.ownerId) {
         listing.ownerEmail = await this.resolveOwnerEmail(listing.ownerId);
@@ -65,7 +63,7 @@ export class ListData { //data for property listings
     await addDoc(collection(this.db, 'ViewingRequests'), {
       listingId,
       email,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     });
   }
 
@@ -79,7 +77,9 @@ export class ListData { //data for property listings
     try {
       const profileRef = doc(this.db, 'Users', ownerId);
       const profileSnap = await getDoc(profileRef);
-      const email = profileSnap.exists() ? (profileSnap.data() as Record<string, any>)['email'] : 'Unknown seller';
+      const email = profileSnap.exists()
+        ? (profileSnap.data() as Record<string, any>)['email']
+        : 'Unknown seller';
       this.ownerEmailCache.set(ownerId, email);
       return email;
     } catch (err) {
@@ -87,6 +87,4 @@ export class ListData { //data for property listings
       return 'Unknown seller';
     }
   }
-
 }
-

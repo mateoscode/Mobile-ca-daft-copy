@@ -1,19 +1,31 @@
 <div class="card-container">
-  
   <ion-card class="property-card" [routerLink]="['/listing', data.id]">
     <div class="media">
-      <img [src]="data.image || 'https://miro.medium.com/1*kwN_Y8GNf2ZB6sNQxngVyw@2x.jpeg'" [alt]="data.title || 'Property image'" />
-      <span class="price-chip">${{data.price}}</span>
+      <img
+        [src]="
+          data.image ||
+          'https://miro.medium.com/1*kwN_Y8GNf2ZB6sNQxngVyw@2x.jpeg'
+        "
+        [alt]="data.title || 'Property image'"
+      />
+      <span class="price-chip">${{ data.price }}</span>
     </div>
     <div class="card-body">
       <div class="title-block">
-        <h3>{{data.title}}</h3>
-        <p class="bnb">{{data.bnb || 'Spacious layout'}}</p>
+        <h3>{{ data.title }}</h3>
+        <p class="bnb">{{ data.bnb || "Spacious layout" }}</p>
       </div>
-      <p class="description">{{ data.description || 'A refined residence with flexible interiors and curated finishes.' }}</p>
+      <p class="description">
+        {{
+          data.description ||
+            "A refined residence with flexible interiors and curated finishes."
+        }}
+      </p>
       <div class="owner-line">
         <span>Listed by</span>
-        <strong>{{ data.ownerEmail || data.ownerId || 'Unknown seller' }}</strong>
+        <strong>{{
+          data.ownerEmail || data.ownerId || "Unknown seller"
+        }}</strong>
       </div>
     </div>
   </ion-card>

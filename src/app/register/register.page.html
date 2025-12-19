@@ -12,7 +12,10 @@
     <div class="auth-copy">
       <p class="eyebrow">Join our community</p>
       <h1>Create your seller profile</h1>
-      <p>Register to track your listings, manage inquiries, and collaborate with buyers.</p>
+      <p>
+        Register to track your listings, manage inquiries, and collaborate with
+        buyers.
+      </p>
       <a routerLink="/login">Already have an account? Sign in</a>
     </div>
     <div class="auth-card panel-card">
@@ -20,7 +23,9 @@
       <input type="email" placeholder="Email" #email />
       <input type="password" placeholder="Password" #pass />
       <p class="error" *ngIf="error !== ''">{{error}}</p>
-      <ion-button expand="block" (click)="register(email.value, pass.value)">Create account</ion-button>
+      <ion-button expand="block" (click)="register(email.value, pass.value)"
+        >Create account</ion-button
+      >
     </div>
   </section>
 </ion-content>

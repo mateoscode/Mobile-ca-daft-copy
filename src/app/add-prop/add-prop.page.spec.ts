@@ -7,15 +7,15 @@ describe('AddPropPage', () => {
   let fixture: ComponentFixture<AddPropPage>;
 
   beforeEach(async () => {
-  await TestBed.configureTestingModule({
-    declarations: [AddPropPage],
-    imports: [IonicModule.forRoot()]
-  }).compileComponents();
+    await TestBed.configureTestingModule({
+      declarations: [AddPropPage],
+      imports: [IonicModule.forRoot()],
+    }).compileComponents();
 
-  fixture = TestBed.createComponent(AddPropPage);
-  component = fixture.componentInstance;
-  fixture.detectChanges();
-});
+    fixture = TestBed.createComponent(AddPropPage);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

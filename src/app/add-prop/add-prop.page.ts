@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonButton } from '@ionic/angular/standalone';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonButtons,
+  IonBackButton,
+  IonButton,
+} from '@ionic/angular/standalone';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ListData } from '../service/Propdata/propdata';
@@ -12,10 +20,19 @@ import { Identity } from '../service/identity/identity';
   templateUrl: 'add-prop.page.html',
   styleUrls: ['./add-prop.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonButton, CommonModule, FormsModule]
+  imports: [
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonButtons,
+    IonBackButton,
+    IonButton,
+    CommonModule,
+    FormsModule,
+  ],
 })
 export class AddPropPage implements OnInit {
-
   error: string = '';
   user$ = this.identity.user$;
 
@@ -23,12 +40,18 @@ export class AddPropPage implements OnInit {
     private listData: ListData,
     private identity: Identity,
     private router: Router,
-    private alertCtrl: AlertController
-  ) { }
+    private alertCtrl: AlertController,
+  ) {}
 
   ngOnInit() {}
 
-  async submitListing(title: string, price: string, bnb: string, description: string, image: string) {
+  async submitListing(
+    title: string,
+    price: string,
+    bnb: string,
+    description: string,
+    image: string,
+  ) {
     if (!this.identity.isLoggedIn()) {
       this.error = 'Please log in before creating a listing.';
       this.router.navigateByUrl('/login');
@@ -48,7 +71,7 @@ export class AddPropPage implements OnInit {
         price,
         bnb,
         description,
-        image
+        image,
       });
       console.log('Listing submitted:', docRef);
       await this.showConfirmation();
@@ -63,14 +86,15 @@ export class AddPropPage implements OnInit {
     const alert = await this.alertCtrl.create({
       header: 'Listing submitted',
       message: 'Your property is now live in the marketplace.',
-      buttons: ['OK']
+      buttons: ['OK'],
     });
     await alert.present();
     await alert.onDidDismiss();
   }
 
   logout() {
-    this.identity.logout()
+    this.identity
+      .logout()
       .then(() => this.router.navigateByUrl('/login', { replaceUrl: true }))
       .catch((err) => console.error('Failed to log out', err));
   }

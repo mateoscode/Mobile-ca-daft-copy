@@ -13,26 +13,27 @@ export const routes: Routes = [
   },
   {
     path: 'listing',
-    loadComponent: () => import('./listing/listing.page').then(m => m.ListingPage)
-  }
-  ,
-  {
-    path: 'login',
-    loadComponent: () => import('./login/login.page').then(m => m.LoginPage)
+    loadComponent: () =>
+      import('./listing/listing.page').then((m) => m.ListingPage),
   },
   {
-  path: 'listing/:id',
-  loadComponent: () =>
-    import('./listing/listing.page').then((m) => m.ListingPage)
-},
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then((m) => m.LoginPage),
+  },
+  {
+    path: 'listing/:id',
+    loadComponent: () =>
+      import('./listing/listing.page').then((m) => m.ListingPage),
+  },
   {
     path: 'register',
-    loadComponent: () => import('./register/register.page').then( m => m.RegisterPage)
+    loadComponent: () =>
+      import('./register/register.page').then((m) => m.RegisterPage),
   },
   {
     path: 'add-prop',
     canMatch: [authGuard],
-    loadComponent: () => import('./add-prop/add-prop.page').then( m => m.AddPropPage)
+    loadComponent: () =>
+      import('./add-prop/add-prop.page').then((m) => m.AddPropPage),
   },
-
 ];

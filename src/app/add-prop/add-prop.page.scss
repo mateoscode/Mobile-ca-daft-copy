@@ -1,46 +1,46 @@
 ion-content {
-	--padding-start: 0;
-	--padding-end: 0;
+  --padding-start: 0;
+  --padding-end: 0;
 }
 
 .form-shell {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .form-heading h1 {
-	font-family: var(--font-heading);
-	margin: 0.4rem 0 0.6rem;
+  font-family: var(--font-heading);
+  margin: 0.4rem 0 0.6rem;
 }
 
 .form-heading .lede {
-	color: rgba(31,36,48,0.7);
-	max-width: 620px;
+  color: rgba(31, 36, 48, 0.7);
+  max-width: 620px;
 }
 
 .listing-form {
-	margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .listing-form .form-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-	gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
 }
 
 .listing-form textarea {
-	min-height: 140px;
-	resize: vertical;
+  min-height: 140px;
+  resize: vertical;
 }
 
 .listing-form .error {
-	color: var(--ion-color-danger, #c53030);
-	min-height: 1.2rem;
+  color: var(--ion-color-danger, #c53030);
+  min-height: 1.2rem;
 }
 
 @media (max-width: 640px) {
-	.listing-form .form-grid {
-		grid-template-columns: 1fr;
-	}
+  .listing-form .form-grid {
+    grid-template-columns: 1fr;
+  }
 }

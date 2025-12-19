@@ -15,21 +15,31 @@
     <ion-card class="detail-card">
       <div class="detail-grid">
         <div class="media">
-          <img [src]="property?.image || 'https://miro.medium.com/1*kwN_Y8GNf2ZB6sNQxngVyw@2x.jpeg'"
-            [alt]="property?.title || 'Property Image'" />
+          <img
+            [src]="property?.image || 'https://miro.medium.com/1*kwN_Y8GNf2ZB6sNQxngVyw@2x.jpeg'"
+            [alt]="property?.title || 'Property Image'"
+          />
         </div>
         <div class="info">
           <div class="info-block">
             <h3>Highlights</h3>
-            <p>{{ property?.description || 'Thoughtfully curated interiors with generous natural light.' }}</p>
+            <p>
+              {{ property?.description || 'Thoughtfully curated interiors with
+              generous natural light.' }}
+            </p>
           </div>
           <div class="info-block meta">
             <span class="meta-label">Layout</span>
-            <span class="meta-value">{{ property?.bnb || 'Details upon request' }}</span>
+            <span class="meta-value"
+              >{{ property?.bnb || 'Details upon request' }}</span
+            >
           </div>
           <div class="info-block posted-by">
             <span class="label">Listed by</span>
-            <span class="value">{{ property?.ownerEmail || property?.ownerId || 'Unknown seller' }}</span>
+            <span class="value"
+              >{{ property?.ownerEmail || property?.ownerId || 'Unknown seller'
+              }}</span
+            >
           </div>
           <ion-button expand="block" (click)="requestViewing()">
             Request a viewing

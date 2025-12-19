@@ -12,7 +12,10 @@
     <div class="form-heading">
       <p class="eyebrow">List a residence</p>
       <h1>Share your property with vetted buyers</h1>
-      <p class="lede">Complete the form below and your listing will appear in the marketplace instantly.</p>
+      <p class="lede">
+        Complete the form below and your listing will appear in the marketplace
+        instantly.
+      </p>
     </div>
     <ng-container *ngIf="user$ | async as user">
       <div class="auth-banner">
@@ -20,7 +23,9 @@
           <span class="label">Logged in as </span>
           <span class="value">{{ user.email || user.uid }}</span>
         </div>
-        <ion-button fill="outline" size="small" (click)="logout()">Log out</ion-button>
+        <ion-button fill="outline" size="small" (click)="logout()"
+          >Log out</ion-button
+        >
       </div>
     </ng-container>
     <div class="listing-form panel-card">
@@ -30,10 +35,17 @@
         <input type="text" placeholder="Bedrooms & bathrooms" #bnb />
         <input type="text" placeholder="Image URL" #image />
       </div>
-      <textarea rows="4" placeholder="Describe the property" #description></textarea>
+      <textarea
+        rows="4"
+        placeholder="Describe the property"
+        #description
+      ></textarea>
       <p class="error" *ngIf="error !== ''">{{error}}</p>
-      <ion-button expand="block"
-        (click)="submitListing(title.value, price.value, bnb.value, description.value, image.value)">Submit listing</ion-button>
+      <ion-button
+        expand="block"
+        (click)="submitListing(title.value, price.value, bnb.value, description.value, image.value)"
+        >Submit listing</ion-button
+      >
     </div>
   </section>
 </ion-content>

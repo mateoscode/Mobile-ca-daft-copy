@@ -12,7 +12,10 @@
     <div class="hero-text">
       <p class="eyebrow">Curated properties</p>
       <h1>Modern residences for discerning buyers</h1>
-      <p class="lede">Browse a handpicked portfolio of contemporary homes, penthouses, and retreats listed directly by trusted hosts.</p>
+      <p class="lede">
+        Browse a handpicked portfolio of contemporary homes, penthouses, and
+        retreats listed directly by trusted hosts.
+      </p>
       <ion-button routerLink="/add-prop">Add a listing</ion-button>
     </div>
   </section>
@@ -25,7 +28,10 @@
       </div>
     </div>
     <div class="listings-grid">
-      <property-card-component *ngFor="let i of data" [listings]="i"></property-card-component>
+      <property-card-component
+        *ngFor="let i of data"
+        [listings]="i"
+      ></property-card-component>
     </div>
   </section>
 </ion-content>

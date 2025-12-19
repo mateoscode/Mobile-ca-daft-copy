@@ -1,37 +1,37 @@
 ion-content {
-        --padding-start: 0;
-        --padding-end: 0;
+  --padding-start: 0;
+  --padding-end: 0;
 }
 
 .auth-shell {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 2rem;
-        align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  align-items: center;
 }
 
 .auth-copy h1 {
-        font-family: var(--font-heading);
-        margin: 0.2rem 0 0.8rem;
+  font-family: var(--font-heading);
+  margin: 0.2rem 0 0.8rem;
 }
 
 .auth-copy a {
-        font-weight: 600;
-        color: var(--ion-color-primary);
+  font-weight: 600;
+  color: var(--ion-color-primary);
 }
 
 .auth-card h2 {
-        margin-top: 0;
-        font-family: var(--font-heading);
+  margin-top: 0;
+  font-family: var(--font-heading);
 }
 
 .auth-card .error {
-        color: var(--ion-color-danger, #c53030);
-        min-height: 1.2rem;
+  color: var(--ion-color-danger, #c53030);
+  min-height: 1.2rem;
 }
 
 @media (max-width: 640px) {
-        .auth-shell {
-                text-align: center;
-        }
+  .auth-shell {
+    text-align: center;
+  }
 }

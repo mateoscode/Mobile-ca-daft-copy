@@ -2,8 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ListData } from '../service/Propdata/propdata';
 
-
-import { IonCard, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton } from '@ionic/angular/standalone';
+import {
+  IonCard,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButtons,
+  IonBackButton,
+  IonButton,
+} from '@ionic/angular/standalone';
 import { AlertController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +20,17 @@ import { CommonModule } from '@angular/common';
   templateUrl: './listing.page.html',
   styleUrls: ['./listing.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonButtons, IonBackButton, IonButton]
+  imports: [
+    CommonModule,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonCard,
+    IonButtons,
+    IonBackButton,
+    IonButton,
+  ],
 })
 export class ListingPage implements OnInit {
   property: any;
@@ -20,7 +38,7 @@ export class ListingPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private listData: ListData,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
   ) {}
 
   async ngOnInit() {
@@ -40,13 +58,13 @@ export class ListingPage implements OnInit {
         {
           name: 'email',
           type: 'email',
-          placeholder: 'you@example.com'
-        }
+          placeholder: 'you@example.com',
+        },
       ],
       buttons: [
         {
           text: 'Cancel',
-          role: 'cancel'
+          role: 'cancel',
         },
         {
           text: 'Send request',
@@ -63,9 +81,9 @@ export class ListingPage implements OnInit {
               console.error('Viewing request failed', err);
               return false;
             }
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
     await alert.present();
   }
@@ -74,11 +92,8 @@ export class ListingPage implements OnInit {
     const alert = await this.alertCtrl.create({
       header: 'Request sent',
       message: 'The seller will reach out to schedule your viewing.',
-      buttons: ['OK']
+      buttons: ['OK'],
     });
     await alert.present();
   }
 }
-
-
-

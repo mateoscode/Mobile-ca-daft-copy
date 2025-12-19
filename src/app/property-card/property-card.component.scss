@@ -10,9 +10,15 @@ property-card-component {
   border: none;
   border-radius: 26px;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.7)
+  );
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   min-height: 420px;
@@ -44,7 +50,7 @@ property-card-component {
   position: absolute;
   bottom: 18px;
   left: 18px;
-  background: rgba(31,36,48,0.85);
+  background: rgba(31, 36, 48, 0.85);
   color: #fff;
   padding: 0.45rem 0.85rem;
   border-radius: 999px;
@@ -78,13 +84,13 @@ property-card-component {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: rgba(31,36,48,0.55);
+  color: rgba(31, 36, 48, 0.55);
 }
 
 .property-card .description {
   flex: 1;
   font-size: 0.9rem;
-  color: rgba(31,36,48,0.75);
+  color: rgba(31, 36, 48, 0.75);
   margin: 1rem 0 0.8rem;
   line-height: 1.5;
   display: -webkit-box;
@@ -100,7 +106,7 @@ property-card-component {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(31,36,48,0.55);
+  color: rgba(31, 36, 48, 0.55);
 }
 
 .property-card .owner-line strong {

@@ -14,5 +14,4 @@ export class PropertyCardComponent {
   data: any;
 
   //  displays individual property details from the data input
-
 }

@@ -15,6 +15,6 @@ export const authGuard: CanMatchFn = () => {
       }
       router.navigateByUrl('/login', { replaceUrl: true });
       return false;
-    })
+    }),
   );
 };
