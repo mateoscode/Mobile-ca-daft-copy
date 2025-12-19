@@ -41,6 +41,25 @@
               }}</span
             >
           </div>
+          <div class="map-block">
+            <ng-container *ngIf="mapLoaded; else loadingMap">
+              <google-map
+                height="280px"
+                width="100%"
+                [zoom]="zoom"
+                [center]="mapCenter"
+              >
+                <map-marker [position]="markerPosition"></map-marker>
+              </google-map>
+              <p class="map-error" *ngIf="mapError">{{ mapError }}</p>
+            </ng-container>
+            <ng-template #loadingMap>
+              <div class="map-placeholder">
+                <ion-spinner name="crescent"></ion-spinner>
+                <span>Loading map...</span>
+              </div>
+            </ng-template>
+          </div>
           <ion-button expand="block" (click)="requestViewing()">
             Request a viewing
           </ion-button>

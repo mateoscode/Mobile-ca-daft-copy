@@ -34,6 +34,7 @@
         <input type="text" placeholder="Price" #price />
         <input type="text" placeholder="Bedrooms & bathrooms" #bnb />
         <input type="text" placeholder="Image URL" #image />
+        <input type="text" placeholder="Eircode" #eircode />
       </div>
       <textarea
         rows="4"
@@ -43,7 +44,7 @@
       <p class="error" *ngIf="error !== ''">{{error}}</p>
       <ion-button
         expand="block"
-        (click)="submitListing(title.value, price.value, bnb.value, description.value, image.value)"
+        (click)="submitListing(title.value, price.value, bnb.value, description.value, image.value, eircode.value)"
         >Submit listing</ion-button
       >
     </div>

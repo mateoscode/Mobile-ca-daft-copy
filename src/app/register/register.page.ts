@@ -2,12 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonButton,
-  IonButtons,
+  IonContent, IonHeader, IonTitle, IonToolbar,
+  IonButton, IonButtons,
 } from '@ionic/angular/standalone';
 import { Identity } from '../service/identity/identity';
 import { AlertController } from '@ionic/angular';
@@ -19,15 +15,8 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./register.page.scss'],
   standalone: true,
   imports: [
-    IonContent,
-    IonHeader,
-    IonButtons,
-    IonButton,
-    IonTitle,
-    IonToolbar,
-    CommonModule,
-    FormsModule,
-    RouterModule,
+    IonContent, IonHeader, IonButtons, IonButton, IonTitle,
+    IonToolbar, CommonModule, FormsModule, RouterModule,
   ],
 })
 export class RegisterPage implements OnInit {
@@ -36,9 +25,9 @@ export class RegisterPage implements OnInit {
     private identity: Identity,
     private alertCtrl: AlertController,
     private router: Router,
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async register(email: string, pass: string) {
     this.error = '';
