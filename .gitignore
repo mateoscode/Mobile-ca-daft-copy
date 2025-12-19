@@ -5,15 +5,14 @@ yarn.lock
 bun.lockb
 
 # Build output
-www/
-dist/
-build/
-out-tsc/
-bazel-out/
-platforms/
-plugins/
-.angular/
-/.angular
+/www/
+/dist/
+/build/
+/out-tsc/
+/bazel-out/
+/platforms/
+/plugins/
+/.angular/
 /.angular/cache
 
 # Environment & config
@@ -55,13 +54,12 @@ log.txt
 .sass-cache/
 .sourcemaps/
 /coverage
-coverage/
 /.nx
 /.nx/cache
 /connect.lock
 /libpeerconnection.log
 testem.log
-tmp/
+/tmp
 
 # Misc project artifacts
 firebase screenshots/
