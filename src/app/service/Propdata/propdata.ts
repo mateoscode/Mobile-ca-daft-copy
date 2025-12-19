@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { collection, getDocs, addDoc } from 'firebase/firestore';
+import { collection, getDocs, addDoc, doc, getDoc } from 'firebase/firestore';
 
 
 @Injectable({
@@ -22,6 +22,7 @@ export class ListData { //data for property listings
   };
   private app: any;
   private db: any;
+  private ownerEmailCache = new Map<string, string>();
 
   constructor() {
     this.app = initializeApp(this.firebaseConfig);
@@ -34,12 +35,16 @@ export class ListData { //data for property listings
     this.data = [];
     const querySnapshot = await getDocs(collection(this.db, "PropertyData"));
 
-    querySnapshot.forEach(doc => {
-      this.data.push({
-        id: doc.id,
-        ...doc.data()
-      });
-    });
+    for (const docSnapshot of querySnapshot.docs) {
+      const listing: any = {
+        id: docSnapshot.id,
+        ...docSnapshot.data()
+      };
+      if (!listing.ownerEmail && listing.ownerId) {
+        listing.ownerEmail = await this.resolveOwnerEmail(listing.ownerId);
+      }
+      this.data.push(listing);
+    }
     console.log('Fetched Firestore data:', this.data);
     return this.data;
   }
@@ -49,9 +54,38 @@ export class ListData { //data for property listings
   }
 
   async addListing(listing: any) {
-    // Add a new document to the PropertyData collection
+    if (listing.ownerId && !listing.ownerEmail) {
+      listing.ownerEmail = await this.resolveOwnerEmail(listing.ownerId);
+    }
     const docRef = await addDoc(collection(this.db, 'PropertyData'), listing);
     return docRef;
+  }
+
+  async addViewingRequest(listingId: string, email: string) {
+    await addDoc(collection(this.db, 'ViewingRequests'), {
+      listingId,
+      email,
+      createdAt: new Date().toISOString()
+    });
+  }
+
+  private async resolveOwnerEmail(ownerId: string | undefined) {
+    if (!ownerId) {
+      return 'Unknown seller';
+    }
+    if (this.ownerEmailCache.has(ownerId)) {
+      return this.ownerEmailCache.get(ownerId);
+    }
+    try {
+      const profileRef = doc(this.db, 'Users', ownerId);
+      const profileSnap = await getDoc(profileRef);
+      const email = profileSnap.exists() ? (profileSnap.data() as Record<string, any>)['email'] : 'Unknown seller';
+      this.ownerEmailCache.set(ownerId, email);
+      return email;
+    } catch (err) {
+      console.error('Could not resolve owner email for', ownerId, err);
+      return 'Unknown seller';
+    }
   }
 
 }

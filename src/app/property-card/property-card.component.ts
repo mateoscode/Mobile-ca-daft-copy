@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/angular/standalone';
+import { IonCard } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   templateUrl: 'property-card.component.html',
   styleUrls: ['property-card.component.scss'],
-  imports: [IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, RouterModule],
+  imports: [IonCard, RouterModule],
 })
 export class PropertyCardComponent {
   @Input('listings')

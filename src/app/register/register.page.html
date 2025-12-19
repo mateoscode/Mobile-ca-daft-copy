@@ -8,17 +8,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Register</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div class="register-box">
-    <h2>Create account</h2> <!--email and password for registration  -->
-    <input type="text" placeholder="Email" #email />
-    <input type="password" placeholder="Password" #pass />
-    <p *ngIf="error !== ''">{{error}}</p>
-    <ion-button expand="block" (click)="register(email.value, pass.value)">Register</ion-button>
-  </div>
+  <section class="auth-shell page-shell">
+    <div class="auth-copy">
+      <p class="eyebrow">Join our community</p>
+      <h1>Create your seller profile</h1>
+      <p>Register to track your listings, manage inquiries, and collaborate with buyers.</p>
+      <a routerLink="/login">Already have an account? Sign in</a>
+    </div>
+    <div class="auth-card panel-card">
+      <h2>Register</h2>
+      <input type="email" placeholder="Email" #email />
+      <input type="password" placeholder="Password" #pass />
+      <p class="error" *ngIf="error !== ''">{{error}}</p>
+      <ion-button expand="block" (click)="register(email.value, pass.value)">Create account</ion-button>
+    </div>
+  </section>
 </ion-content>

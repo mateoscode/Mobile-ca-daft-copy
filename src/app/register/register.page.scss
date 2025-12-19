@@ -1,48 +1,38 @@
-/* Centered register box and form styles */
 ion-content {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 1rem;
-	min-height: calc(100vh - 56px);
+  --padding-start: 0;
+  --padding-end: 0;
 }
 
-.register-box {
-	width: 100%;
-	max-width: 440px;
-	padding: 28px;
-	border-radius: 12px;
-	background: var(--ion-background-color, #fff);
-	border: 1px solid rgba(0,0,0,0.08);
-	box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-	text-align: center;
+.auth-shell {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  align-items: center;
 }
 
-.register-box input[type="text"],
-.register-box input[type="password"],
-.register-box ion-input {
-	width: 100%;
-	box-sizing: border-box;
-	padding: 10px 12px;
-	margin: 10px 0 14px 0;
-	border: 1px solid rgba(0,0,0,0.12);
-	border-radius: 8px;
-	font-size: 0.95rem;
+.auth-card h2 {
+  margin-top: 0;
+  font-family: var(--font-heading);
 }
 
-.register-box ion-button {
-	margin-top: 8px;
-	width: 100%;
+.auth-card .error {
+  color: var(--ion-color-danger, #c53030);
+  min-height: 1.2rem;
 }
 
-.register-box p {
-	color: var(--ion-color-danger, #c53030);
-	min-height: 1.2em;
+.auth-copy h1 {
+  font-family: var(--font-heading);
+  margin: 0.2rem 0 0.8rem;
 }
 
-@media (min-width: 768px) {
-	.register-box {
-		padding: 36px;
-	}
+.auth-copy a {
+  font-weight: 600;
+  color: var(--ion-color-primary);
+}
+
+@media (max-width: 640px) {
+  .auth-shell {
+    text-align: center;
+  }
 }
 

@@ -9,6 +9,8 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -34,48 +36,116 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
-
-@media screen and (max-width:400px) {
-    .property-card{width: 25vw;}
+:root {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+  --shell-50: #f9f6f1;
+  --shell-100: #f1ece4;
+  --shell-300: #d9cec2;
+  --ink-900: #1f2430;
+  --accent-emerald: #2f8f83;
+  --accent-gold: #cba24a;
+  --glass: rgba(255, 255, 255, 0.82);
+  --backdrop: rgba(16, 27, 38, 0.08);
+  --ion-color-primary: #2f8f83;
+  --ion-color-primary-rgb: 47, 143, 131;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #297d73;
+  --ion-color-primary-tint: #44a395;
+  --ion-color-secondary: #cba24a;
+  --ion-color-secondary-contrast: #1f2430;
 }
 
+body {
+  font-family: var(--font-body);
+  color: var(--ink-900);
+  background: linear-gradient(135deg, var(--shell-50), var(--shell-100));
+  min-height: 100vh;
+}
+
+ion-app,
+ion-content {
+  font-family: var(--font-body);
+  --background: linear-gradient(135deg, var(--shell-50), var(--shell-100));
+}
 
 ion-header ion-toolbar {
+  --background: rgba(255,255,255,0.9);
+  --border-color: transparent;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.4);
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* centers the title */
-  padding: 0 1rem;
 }
 
-/* Center title */
 ion-header ion-toolbar ion-title {
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin: 0 auto;
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+  font-size: 1.35rem;
+  text-transform: uppercase;
 }
 
-/* Right-aligned header button */
-ion-header ion-toolbar .header-button {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-flex;
-  align-items: center;
-  z-index: 10;
-  background-color: #348ddb;
-  color: white;
-  border-radius: 20px;
-  padding: 6px 14px;
-  text-transform: none;
+ion-button {
+  --background: var(--ion-color-primary);
+  --background-hover: var(--ion-color-primary-shade);
+  --border-radius: 999px;
+  letter-spacing: 0.05em;
   font-weight: 600;
 }
 
-ion-header ion-toolbar .header-button:hover {
-  background-color: #348ddb;
+.page-shell {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 2.5rem 0 3.5rem;
+}
+
+.panel-card {
+  background: var(--glass);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.1);
+  padding: 2.25rem;
+}
+
+.form-field,
+.panel-card input[type="text"],
+.panel-card input[type="password"],
+.panel-card input[type="email"],
+.panel-card textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(31,36,48,0.08);
+  background: rgba(255,255,255,0.75);
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.panel-card input:focus,
+.panel-card textarea:focus {
+  border-color: var(--ion-color-primary);
+  box-shadow: 0 0 0 3px rgba(47, 143, 131, 0.15);
+  outline: none;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.72rem;
+  color: rgba(31,36,48,0.55);
+}
+
+.glass-banner {
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 18px;
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  align-items: center;
+  color: rgba(31,36,48,0.7);
 }
 
 

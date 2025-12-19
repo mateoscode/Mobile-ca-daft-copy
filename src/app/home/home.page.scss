@@ -1,52 +1,64 @@
 
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-content {
+  --background: transparent;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-
-#listings {
+.hero-shell {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.hero-text h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin: 0.2rem 0 1rem;
+  color: var(--ink-900);
+}
+
+.hero-text .lede {
+  font-size: 1.05rem;
+  color: rgba(31,36,48,0.75);
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
+}
+
+.hero-shell ion-button {
+  margin-top: 0.5rem;
+}
+
+.listings-section {
+  margin-top: 1rem;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
-  justify-content: center;
+  margin-bottom: 1.2rem;
 }
 
-property-card-component {
-  flex: 1 1 calc(25% - 1rem);
-  min-width: 200px;
-  max-width: 300px;
+.section-head h2 {
+  margin: 0.15rem 0;
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
 }
 
-@media (max-width: 768px) {
-  property-card-component {
-    flex: 1 1 calc(50% - 1rem);
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .hero-shell {
+    text-align: center;
+    align-items: center;
   }
-}
-
-@media (max-width: 480px) {
-  property-card-component {
-    flex: 1 1 calc(50% - 1rem);
+  .section-head {
+    flex-direction: column;
+    text-align: center;
   }
-  
 }

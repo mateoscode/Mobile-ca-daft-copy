@@ -1,28 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Property For Sale</ion-title>
     <ion-buttons slot="start">
-      <ion-button routerLink="/add-prop" fill="clear">Add</ion-button>
+      <ion-button routerLink="/login" fill="clear">Sign in</ion-button>
     </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button routerLink="/login" fill="clear">Login</ion-button>
-    </ion-buttons>
+    <ion-title>CaMobile Estates</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar> <!-- header includes login page fink  -->
-      <ion-title size="large">Property for sale</ion-title>
-      <ion-buttons slot="end">
-        <ion-button routerLink="/login" fill="clear">Login</ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  <section class="hero-shell page-shell">
+    <div class="hero-text">
+      <p class="eyebrow">Curated properties</p>
+      <h1>Modern residences for discerning buyers</h1>
+      <p class="lede">Browse a handpicked portfolio of contemporary homes, penthouses, and retreats listed directly by trusted hosts.</p>
+      <ion-button routerLink="/add-prop">Add a listing</ion-button>
+    </div>
+  </section>
 
-  <div id="listings"><!--  div for listings gets data from propdata and using the template from property card  -->
-    <property-card-component *ngFor="let i of data" [listings]="i"></property-card-component>
-  </div>
-
-
+  <section class="listings-section page-shell" id="featured-listings">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Featured selection</p>
+        <h2>Available properties</h2>
+      </div>
+    </div>
+    <div class="listings-grid">
+      <property-card-component *ngFor="let i of data" [listings]="i"></property-card-component>
+    </div>
+  </section>
 </ion-content>

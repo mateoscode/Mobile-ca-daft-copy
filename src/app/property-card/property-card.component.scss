@@ -1,69 +1,111 @@
-
-
 .card-container {
-  display: flex;
-  flex-wrap: wrap;         // allows cards to wrap on small screens
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
+  width: 100%;
 }
 
 property-card-component {
-  flex: 1 1 calc(25% - 1rem);   
-  max-width: 300px;             
-  min-width: 200px;             
-}
-
-@media (max-width: 768px) {
-  property-card-component {
-    flex: 1 1 calc(50% - 1rem);
-  }
-}
-
-
-@media (max-width: 480px) {
-  property-card-component {
-    flex: 1 1 calc(50% - 1rem);
-  }
+  display: block;
 }
 
 .property-card {
-  width: 100%;                  
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 26px;
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+}
 
-  img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
+.property-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.18);
+}
 
-  ion-card-header {
-    padding: 1rem;
-    background-color: #f8f8f8;
+.property-card .media {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
 
-    ion-card-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #333;
-    }
+.property-card .media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
 
-    ion-card-subtitle {
-      font-size: 0.9rem;
-      color: #666;
-    }
-  }
+.property-card:hover .media img {
+  transform: scale(1.05);
+}
 
-  ion-card-content {
-    padding: 1rem;
-    font-size: 0.95rem;
-    color: #555;
-  }
+.property-card .price-chip {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  background: rgba(31,36,48,0.85);
+  color: #fff;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  }
+.property-card .card-body {
+  padding: 1.1rem 1.35rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.property-card .title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.property-card .title-block h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-family: var(--font-heading);
+  color: var(--ink-900);
+}
+
+.property-card .title-block .bnb {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(31,36,48,0.55);
+}
+
+.property-card .description {
+  flex: 1;
+  font-size: 0.9rem;
+  color: rgba(31,36,48,0.75);
+  margin: 1rem 0 0.8rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.property-card .owner-line {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(31,36,48,0.55);
+}
+
+.property-card .owner-line strong {
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ion-color-primary);
 }
