@@ -2,13 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonButtons,
-  IonBackButton,
-  IonButton,
+  IonContent, IonHeader, IonTitle, IonToolbar,
+  IonButtons, IonBackButton, IonButton,
 } from '@ionic/angular/standalone';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -24,16 +19,8 @@ declare const google: any;
   styleUrls: ['./add-prop.page.scss'],
   standalone: true,
   imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    IonButtons,
-    IonBackButton,
-    IonButton,
-    CommonModule,
-    FormsModule,
-  ],
+    IonContent, IonHeader, IonTitle, IonToolbar, 
+    IonButtons, IonBackButton, IonButton, CommonModule, FormsModule,  ],
 })
 export class AddPropPage implements OnInit {
   error: string = '';
@@ -44,9 +31,9 @@ export class AddPropPage implements OnInit {
     private identity: Identity,
     private router: Router,
     private alertCtrl: AlertController,
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async submitListing(
     title: string,

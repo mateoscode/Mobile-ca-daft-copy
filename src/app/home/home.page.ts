@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-  IonButtons,
-  IonButton,
+  IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton,
 } from '@ionic/angular/standalone';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
@@ -18,22 +13,12 @@ import { ListData } from '../service/Propdata/propdata';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonButtons,
-    IonButton,
-    CommonModule,
-    PropertyCardComponent,
-    MatButtonModule,
-    RouterModule,
-  ],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, CommonModule,
+     PropertyCardComponent, MatButtonModule, RouterModule, ],
 })
 export class HomePage implements OnInit {
   data: any = [];
-  constructor(private ListData: ListData) {}
+  constructor(private ListData: ListData) { }
 
   async ngOnInit() {
     this.data = await this.ListData.getAllListData();
